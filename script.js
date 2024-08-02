@@ -2,6 +2,7 @@ import numTeams from "./solutions/numTeams.js";
 import minimumDeletions from "./solutions/minimumDeletions.js";
 import minHeightShelves from "./solutions/minHeightShelves.js";
 import countSeniors from "./solutions/countSeniors.js";
+import minSwaps from "./solutions/minSwaps.js";
 
 const problems = document.querySelectorAll(".problem");
 const problemObjects = {
@@ -9,6 +10,7 @@ const problemObjects = {
   "problem-2": minimumDeletions,
   "problem-3": minHeightShelves,
   "problem-4": countSeniors,
+  "problem-5": minSwaps,
 };
 const problemDropdown = document.querySelector("#problem-dropdown");
 

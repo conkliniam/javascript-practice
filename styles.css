@@ -4,6 +4,8 @@
   --theme-shadow: rgb(1, 0, 57);
   --theme-orange: rgb(255, 183, 0);
   --theme-light-blue: rgb(170, 247, 255);
+  --theme-blue-2: rgb(139, 143, 254);
+  --theme-light-purple: rgb(191, 128, 239);
   --theme-maroon: rgb(79, 13, 13);
   --theme-green: rgb(73, 255, 73);
 }
@@ -128,6 +130,18 @@ button:active {
   font-size: 0.75rem;
 }
 
-pre {
+.answer-container pre {
   overflow: auto;
+}
+
+a {
+  color: var(--theme-light-blue);
+}
+
+a:visited {
+  color: var(--theme-light-purple);
+}
+
+a:hover {
+  color: var(--theme-blue-2);
 }
