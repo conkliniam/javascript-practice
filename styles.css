@@ -1,0 +1,133 @@
+:root {
+  --theme-blue: rgb(36, 66, 163);
+  --theme-dark-blue: rgb(23, 30, 94);
+  --theme-shadow: rgb(1, 0, 57);
+  --theme-orange: rgb(255, 183, 0);
+  --theme-light-blue: rgb(170, 247, 255);
+  --theme-maroon: rgb(79, 13, 13);
+  --theme-green: rgb(73, 255, 73);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: var(--theme-blue);
+}
+
+h1 {
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  background-color: var(--theme-dark-blue);
+  margin-top: 0;
+  box-shadow: 0px 10px 5px var(--theme-shadow);
+}
+
+.dropdown {
+  margin-left: 20px;
+  font-size: 2rem;
+}
+
+select {
+  height: 40px;
+  font-size: 1.5rem;
+}
+
+.passed-test {
+  color: lightgreen;
+  background-color: darkgreen;
+  border: 1px solid var(--theme-green);
+  box-shadow: 5px 5px 5px green;
+}
+
+.failed-test {
+  color: pink;
+  background-color: darkred;
+  box-shadow: 5px 5px 5px red;
+  border: 1px solid pink;
+}
+
+.passed-test,
+.failed-test {
+  padding: 10px;
+  overflow: auto;
+}
+
+.passed-test::before {
+  content: "Test Passed!";
+  color: var(--theme-green);
+}
+
+.failed-test::before {
+  content: "Test Failed!";
+  color: #ffabab;
+}
+
+.passed-test::before,
+.failed-test::before {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.problem {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.problem > div {
+  border: 5px ridge var(--theme-orange);
+  overflow: auto;
+  padding: 10px;
+  background-color: var(--theme-maroon);
+  box-shadow: 5px 5px 5px var(--theme-shadow);
+  border-radius: 10px;
+}
+
+.answer {
+  background-color: black;
+  color: var(--theme-light-blue);
+  padding: 5px;
+  border: 2px solid var(--theme-orange);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.hidden {
+  display: none;
+}
+
+.mini-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: var(--theme-light-blue);
+  height: 40px;
+  width: 150px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: var(--theme-dark-blue);
+  border: 1px solid var(--theme-light-blue);
+  color: white;
+}
+
+button:active {
+  margin: 5px 18.75px;
+  width: 112.5px;
+  height: 30px;
+  font-size: 0.75rem;
+}
+
+pre {
+  overflow: auto;
+}
