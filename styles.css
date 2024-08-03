@@ -121,6 +121,7 @@ button:hover {
   background-color: var(--theme-dark-blue);
   border: 1px solid var(--theme-light-blue);
   color: white;
+  cursor: pointer;
 }
 
 button:active {
