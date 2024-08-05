@@ -5,6 +5,7 @@ import countSeniors from "./solutions/countSeniors.js";
 import minSwaps from "./solutions/minSwaps.js";
 import canBeEqual from "./solutions/canBeEqual.js";
 import rangeSum from "./solutions/rangeSum.js";
+import kthDistinct from "./solutions/kthDistincet.js";
 
 const problems = document.querySelectorAll(".problem");
 const problemObjects = {
@@ -15,6 +16,7 @@ const problemObjects = {
   "problem-5": minSwaps,
   "problem-6": canBeEqual,
   "problem-7": rangeSum,
+  "problem-8": kthDistinct,
 };
 const problemDropdown = document.querySelector("#problem-dropdown");
 
