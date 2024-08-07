@@ -7,6 +7,7 @@ import canBeEqual from "./solutions/canBeEqual.js";
 import rangeSum from "./solutions/rangeSum.js";
 import kthDistinct from "./solutions/kthDistincet.js";
 import minimumPushes from "./solutions/minimumPushes.js";
+import * as numberToWords from "./solutions/numberToWords.js";
 
 const problems = document.querySelectorAll(".problem");
 const problemObjects = {
@@ -19,6 +20,7 @@ const problemObjects = {
   "problem-7": rangeSum,
   "problem-8": kthDistinct,
   "problem-9": minimumPushes,
+  "problem-10": numberToWords,
 };
 const problemDropdown = document.querySelector("#problem-dropdown");
 
