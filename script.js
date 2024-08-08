@@ -8,6 +8,7 @@ import rangeSum from "./solutions/rangeSum.js";
 import kthDistinct from "./solutions/kthDistincet.js";
 import minimumPushes from "./solutions/minimumPushes.js";
 import * as numberToWords from "./solutions/numberToWords.js";
+import * as spiralMatrixIII from "./solutions/spiralMatrixIII.js";
 
 const problems = document.querySelectorAll(".problem");
 const problemObjects = {
@@ -21,6 +22,7 @@ const problemObjects = {
   "problem-8": kthDistinct,
   "problem-9": minimumPushes,
   "problem-10": numberToWords,
+  "problem-11": spiralMatrixIII,
 };
 const problemDropdown = document.querySelector("#problem-dropdown");
 
@@ -45,6 +47,28 @@ for (const problem of problems) {
   answer.textContent = `${problemObject.method}`;
 }
 
+// Taken from https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+if (Array.prototype.equals)
+  console.warn(
+    "Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code."
+  );
+Array.prototype.equals = function (array) {
+  if (!array) return false;
+  if (array === this) return true;
+  if (this.length != array.length) return false;
+
+  for (let i = 0, l = this.length; i < l; i++) {
+    if (this[i] instanceof Array && array[i] instanceof Array) {
+      if (!this[i].equals(array[i])) return false;
+    } else if (this[i] != array[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+Object.defineProperty(Array.prototype, "equals", { enumerable: false });
+
 function handleClick(resultElement, problem) {
   resultElement.innerHTML = "";
 
@@ -53,18 +77,17 @@ function handleClick(resultElement, problem) {
   for (const test of problem.tests) {
     let resultElement = document.createElement("p");
     let result = problem.method(test.input);
-    let displayedInput;
+    let inputString = getDisplayString(test.input);
+    let outputString = getDisplayString(test.expectedOutput);
+    let resultString = getDisplayString(result);
 
-    if (typeof test.input === "object") {
-      displayedInput = JSON.stringify(test.input);
-    } else {
-      displayedInput = `${test.input}`;
-    }
+    resultElement.innerHTML = `<br>Input: ${inputString}<br/>Expected Result: ${outputString}<br/>Actual Result: ${resultString}`;
 
-    resultElement.innerHTML = `<br>Input: ${displayedInput}<br>Expected Result: ${test.expectedOutput}<br>Actual Result: ${result}`;
-
-    resultElement.className =
-      result === test.expectedOutput ? "passed-test" : "failed-test";
+    let passed =
+      typeof result === "object"
+        ? result.equals(test.expectedOutput)
+        : result === test.expectedOutput;
+    resultElement.className = passed ? "passed-test" : "failed-test";
     containerElement.appendChild(resultElement);
   }
 
@@ -78,5 +101,13 @@ function handleChangeProblem(event) {
     } else {
       problem.style.display = "none";
     }
+  }
+}
+
+function getDisplayString(value) {
+  if (typeof value === "object") {
+    return JSON.stringify(value);
+  } else {
+    return `${value}`;
   }
 }
